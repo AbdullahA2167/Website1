@@ -1,12 +1,12 @@
-const plane = document.getElementById("plane");
+const plane = document.getElementById('plane');
 
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  const maxScroll = document.body.scrollHeight - window.innerHeight;
-  const percentage = scrollY / maxScroll;
+document.querySelector('.h-scroll').addEventListener('scroll', function () {
+  const scrollX = this.scrollLeft;
+  const maxScroll = this.scrollWidth - this.clientWidth;
+  const percent = scrollX / maxScroll;
 
-  const x = percentage * (window.innerWidth - 100);
-  const y = percentage * (window.innerHeight * 2.5);
+  const windowWidth = window.innerWidth;
+  const travelX = percent * (windowWidth - 100); // adjust offset
 
-  plane.style.transform = `translate(${x}px, ${y}px)`;
+  plane.style.transform = `translateX(${travelX}px)`;
 });
